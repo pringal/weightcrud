@@ -19,7 +19,7 @@ class WeightcrudServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         
-        \Artisan::call('migrate --path=packages/pringal/weightcrud/database/migrations/2018_08_08_100000_create_weight_table.php');
+        \Artisan::call('migrate --path=vendor/pringal/weightcrud/database/migrations/2018_08_08_100000_create_weight_table.php');
         
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'weightcrud');
             
