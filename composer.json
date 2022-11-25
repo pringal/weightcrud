@@ -1,6 +1,6 @@
 {
     "name": "pringal/weightcrud",
-    "description": "package for laravel crud",
+    "description": "A package for laravel crud simple CRUD with Vue Components",
     "license": "MIT",
     "authors": [
         {
