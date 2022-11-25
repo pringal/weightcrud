@@ -1,0 +1,41 @@
+{
+    "name": "pringal/weightcrud",
+    "description": "package for laravel crud",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pringal",
+            "email": "pringal.development@gmail.com",
+            "homepage": "http://author.com"
+        }
+    ],
+    "homepage": "https://github.com/pringal/weightcrud",
+    "keywords": ["Laravel", "Weightcrud"],
+    "require": {
+        "illuminate/support": "~9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pringal\\Weightcrud\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pringal\\Weightcrud\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pringal\\Weightcrud\\WeightcrudServiceProvider"
+            ],
+            "aliases": {
+                "Weightcrud": "Pringal\\Weightcrud\\Facades\\Weightcrud"
+            }
+        }
+    }
+}
