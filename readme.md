@@ -5,9 +5,11 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+A simple package for weight data CRUD using Vue.Js , Laravel 9
 
-## Installation
+## Install the package
+
+- Vue Scaffolding should preset
 
 Via Composer
 
@@ -15,7 +17,20 @@ Via Composer
 $ composer require pringal/weightcrud
 ```
 
+Next, Paste this code snippet in resources/app.js in your laravel
+
+```angular2html
+import Weight from '../../vendor/pringal/weightcrud/resources/js/components/Weight.vue'
+app.component('weight', Weight)
+```
+
+You can see the CRUD page at
+```angular2html
+http://127.0.0.1:8000/weight-crud
+```
 ## Usage
+
+Weight Management CRUD
 
 ## Change log
 
@@ -42,7 +57,7 @@ If you discover any security related issues, please email pringal.development@gm
 
 ## License
 
-MIT. Please see the [license file](license.md) for more information.
+MIT. Please see the [license file](LICENSE) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/pringal/weightcrud.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/pringal/weightcrud.svg?style=flat-square

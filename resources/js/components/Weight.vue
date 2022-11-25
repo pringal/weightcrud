@@ -6,7 +6,7 @@
                     <div class="panel-heading">Weight CRUD</div>
                     <div class="panel-body">
                             <div class="form-group">
-                                <label>Date</label>
+                                <label>Date (YYYY-MM-DD)</label>
                                 <input id="date" type="text"  class="form-control" v-model="date">
                             </div>
                             <div class="form-group">

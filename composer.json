@@ -12,6 +12,7 @@
     "homepage": "https://github.com/pringal/weightcrud",
     "keywords": ["Laravel", "Weightcrud"],
     "require": {
+        "php": "^8.0.2",
         "illuminate/support": "~9"
     },
     "require-dev": {
