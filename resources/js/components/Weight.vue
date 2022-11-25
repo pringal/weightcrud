@@ -17,7 +17,8 @@
                                 <label>Comment</label>
                                 <input id="comment" type="text"  class="form-control" v-model="comment">
                             </div>
-                        <button class="btn btn-primary" @click="submitForm">Submit</button>
+                        <button v-if="editableId == 0" class="btn btn-primary" @click="submitForm">Submit</button>
+                        <button v-if="editableId > 0" class="btn btn-primary" @click="submitForm">Update</button>
                     </div>
                 </div>
             </div>
@@ -38,7 +39,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="item in datalist">
+                        <tr v-for="item in datalist" :key="item.id">
 
                             <td>{{item.date}}</td>
                             <td>{{item.weight}}</td>
@@ -65,28 +66,58 @@ export default {
             weight:null,
             comment:null,
             form: new FormData,
-            datalist:[]
+            datalist: {},
+            editableId: 0,
         }
     },
     methods:{
         editRecord(id)
-        {
-            alert(id);
+        {   
+            axios.get('/getdata/'+id).then(response=>{
+                let new_data = response.data;
+                this.editableId = new_data.data.id;
+                this.date = new_data.data.date;
+                this.comment = new_data.data.comment;
+                this.weight = new_data.data.weight;
+
+            })
+                .catch(response=>{
+                    //error
+                });
+
         },
         deleteRecord(id)
-        {
-            alert(id);
+        {   
+            if(!confirm("Are you sure you want to delete?")){
+                return;
+            }
+            axios.get('/deletedata/'+id).then(response=>{
+                this.getList();
+            })
+                .catch(response=>{
+                    //error
+                });
         },
         submitForm(){
             const self = this;
+            this.form = new FormData;
             this.form.append('date',this.date);
             this.form.append('weight',this.weight);
             this.form.append('comment',this.comment);
+
+            if(this.editableId > 0){
+                this.form.append('id',this.editableId);
+            }
 
             const config = { headers: { 'Content-Type': 'multipart/form-data' } };
 
             axios.post('/store',this.form,config).then(response=>{
                 //success
+                this.editableId = 0;
+                this.weight = "";
+                this.date = "";
+                this.comment = "";
+
                 self.getList();
                 console.log(response);
             })
@@ -95,10 +126,9 @@ export default {
             });
         },
         getList(){
-            const self = this;
             axios.get('/datalist').then(response=>{
                 let new_data = response.data;
-                self.datalist = JSON.parse(JSON.stringify(new_data)).data;
+                this.datalist = new_data.data;
             })
                 .catch(response=>{
                     //error

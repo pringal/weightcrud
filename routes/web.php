@@ -17,7 +17,9 @@ use Pringal\Weightcrud\Controllers\WeightController;
 
 Route::post('/store',[WeightController::class, 'store'])->name("store");
 Route::get('/datalist',[WeightController::class, 'datalist'])->name("datalist");
-Route::get('/weight-crud', function () {
+Route::get('/getdata/{id}',[WeightController::class, 'getdata'])->name("getdata");
+Route::get('/deletedata/{id}',[WeightController::class, 'deletedata'])->name("deletedata");
+Route::get('/test', function () {
     //dd('as');
     //return view('weightcrud.resources.views.weight');
     return view('weightcrud::weight');
