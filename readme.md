@@ -17,7 +17,7 @@ Via Composer
 $ composer require pringal/weightcrud
 ```
 
-Next, Paste this code snippet in resources/app.js in your laravel
+Next, Paste this code snippet in resources/js/app.js in your laravel
 
 ```angular2html
 import Weight from '../../vendor/pringal/weightcrud/resources/js/components/Weight.vue'
