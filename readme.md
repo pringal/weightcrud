@@ -10,7 +10,10 @@ A simple package for weight data CRUD using Vue.Js , Laravel 9
 ## Install the package
 
 - Vue Scaffolding should preset
-
+```angular2html
+composer require laravel/ui
+php artisan ui vue
+```
 Via Composer
 
 ``` bash
